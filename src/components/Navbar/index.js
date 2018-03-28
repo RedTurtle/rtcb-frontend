@@ -1,13 +1,15 @@
 import React from 'react';
 import './styles.css';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import logo from './logo.png';
 
-const Navbar = () => (
+const Navbar = ({ location }) => (
   <nav className="navbar navbar-expand-md navbar-light bg-light">
-    <a className="navbar-brand" href="/">
+    <Link exact className="navbar-brand" to="/">
       <img src={logo} alt="Home" />
-    </a>
+    </Link>
     <button
       className="navbar-toggler"
       type="button"
@@ -21,29 +23,36 @@ const Navbar = () => (
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item active">
-          <a className="nav-link" href="#">
-            Home <span className="sr-only">(current)</span>
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
+        <li
+          className={`nav-item ${
+            location.pathname.match(/^\/calendar/) ? 'active' : ''
+          }`}
+        >
+          <Link className="nav-link" to="/calendar">
             Calendario
-          </a>
+          </Link>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
+        <li
+          className={`nav-item ${
+            location.pathname.match(/^\/teams/) ? 'active' : ''
+          }`}
+        >
+          <Link className="nav-link" to="/teams">
             Squadre
-          </a>
+          </Link>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
+        <li
+          className={`nav-item ${
+            location.pathname.match(/^\/players/) ? 'active' : ''
+          }`}
+        >
+          <Link className="nav-link" to="/players">
             Giocatori
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
   </nav>
 );
 
-export default Navbar;
+export default withRouter(Navbar);
