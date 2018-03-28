@@ -4,4 +4,9 @@
     background: $footer-bg;
     color: #fff;
     padding: 20px;
+    text-align: center;
+
+    .row {
+        align-content: center;
+    }
 }

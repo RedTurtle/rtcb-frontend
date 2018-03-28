@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="container">
       <div className="row">
         <div className="col footer-title">
-          <p>Calcio balilla {require('../../../package.json').version}</p>
+          <span>Calcio balilla {require('../../../package.json').version}</span>
         </div>
         <div className="col footer-logo">
           <img src={logo} alt="RedTurtle" />
