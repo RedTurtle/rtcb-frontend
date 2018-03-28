@@ -9,6 +9,12 @@
         "printWidth": 120,
         "tabWidth": 4
       }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "printWidth": 200
+      }
     }
   ]
 }

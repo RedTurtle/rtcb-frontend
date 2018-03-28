@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "apollo-boost": "^0.1.4",
+    "bootstrap": "^4.0.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
     "react": "^16.2.0",
@@ -26,10 +27,8 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "build-css":
-      "node-sass-chokidar --include-path ./node_modules src/ -o src/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
