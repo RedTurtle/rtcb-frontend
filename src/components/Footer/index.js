@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import logo from '../../assets/logo-white-png';
 
 const Footer = () => (
   <div id="footer">
@@ -9,7 +10,7 @@ const Footer = () => (
           <p>Calcio balilla {require('../../../package.json').version}</p>
         </div>
         <div className="col footer-logo">
-          <img src="../../assets/logo-white.png" alt="RedTurtle" />
+          <img src={logo} alt="RedTurtle" />
         </div>
       </div>
     </div>

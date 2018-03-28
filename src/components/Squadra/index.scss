@@ -1,0 +1,13 @@
+.squadra {
+    &.winner {
+        a {
+            position: relative;
+
+            &::before {
+                content: '\27A4';
+                position: absolute;
+                left: -1.5em;
+            }
+        }
+    }
+}
