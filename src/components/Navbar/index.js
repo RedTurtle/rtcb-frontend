@@ -7,7 +7,7 @@ import logo from './logo.png';
 
 const Navbar = ({ location }) => (
   <nav className="navbar navbar-expand-md navbar-light bg-light">
-    <Link exact className="navbar-brand" to="/">
+    <Link className="navbar-brand" to="/">
       <img src={logo} alt="Home" />
     </Link>
     <button
