@@ -7,6 +7,7 @@ const GiornatInCorso = () => (
       <Partita />
       <Partita />
       <Partita />
+      <Partita />
     </div>
   </div>
 );

@@ -1,7 +1,24 @@
 #homepage-content {
     text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: calc(50vh - 4em) calc(50vh - 4em);
+}
+
+header,
+#footer {
+    height: 4em;
 }
 
 .homepage-section {
     padding: 10px;
+
+    > div {
+        height: calc(100% - 3em);
+
+        .section-list {
+            overflow: scroll;
+            height: 100%;
+        }
+    }
 }

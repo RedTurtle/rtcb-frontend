@@ -6,7 +6,11 @@
             &::before {
                 content: '\27A4';
                 position: absolute;
-                left: -1.5em;
+                left: 0;
+            }
+
+            .team {
+                margin-left: 1.5em;
             }
         }
     }
