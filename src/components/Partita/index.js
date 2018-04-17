@@ -1,5 +1,5 @@
 import React from 'react';
-import Squadra from '../Squadra';
+import SquadraLink from '../SquadraLink';
 import './index.css';
 
 const Partita = () => {
@@ -11,7 +11,7 @@ const Partita = () => {
     <div className="partita">
       <div className="row">
         <div className="col partita-team">
-          <Squadra id="team-ploro" teamName="teamA" winner={teamAWinner} />
+          <SquadraLink id="team-ploro" teamName="teamA" winner={teamAWinner} />
         </div>
         <div className="col partita-punti">
           <span>{teamAWinner ? '10' : randomInt.toString()}</span>
@@ -19,7 +19,7 @@ const Partita = () => {
       </div>
       <div className="row">
         <div className="col partita-team">
-          <Squadra id="team-culo" teamName="teamB" winner={teamBWinner} />
+          <SquadraLink id="team-culo" teamName="teamB" winner={teamBWinner} />
         </div>
         <div className="col partita-punti">
           <span>{teamBWinner ? '10' : randomInt.toString()}</span>

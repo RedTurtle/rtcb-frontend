@@ -1,5 +1,5 @@
 import React from 'react';
-import Squadra from '../Squadra';
+import SquadraLink from '../SquadraLink';
 
 const Classifica = () => (
   <div className="classifica">
@@ -15,12 +15,12 @@ const Classifica = () => (
           </thead>
           <tbody>
             {[...Array(10).keys()].map(el => (
-              <tr key={el}>
-                <td scope="row">
+              <tr key={el} scope="row">
+                <td>
                   <span>{`${el + 1}°`}</span>
                 </td>
                 <td>
-                  <Squadra id="team-ploro" teamName="teamA" />
+                  <SquadraLink id="team-ploro" teamName="teamA" />
                 </td>
                 <td>
                   <span>{2 * (10 - el) + 1}</span>
