@@ -8,6 +8,7 @@ import Squadre from '../Squadre';
 import Squadra from '../Squadra';
 import Footer from '../Footer';
 import { client } from '../../graphql/client';
+import Giocatore from '../Giocatore';
 
 class App extends Component {
   render() {
@@ -18,9 +19,18 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Homepage} />
             <Route path="/calendar" render={() => <h1>Calendario</h1>} />
-            <Route exact path="/teams" render={() => <Squadre />} />
+            <Route
+              exact
+              path="/teams"
+              render={props => <Squadre {...props} />}
+            />
             <Route path="/teams/:id" render={Squadra} />
-            <Route path="/players" render={Giocatori} />
+            <Route
+              exact
+              path="/players"
+              render={props => <Giocatori {...props} />}
+            />
+            <Route path="/players/:id" render={Giocatore} />
             <Footer />
           </div>
         </Router>
