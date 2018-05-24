@@ -34,43 +34,41 @@ class Giocatori extends Component {
     const { match } = this.props;
 
     return (
-      <div className="giocatori">
-        <div className="container">
-          <h1>Giocatori</h1>
-          <input
-            type="text"
-            placeholder="Cerca un giocatore&hellip;"
-            className="form-control"
-            onChange={this.onInputChange}
-          />
-          <Query query={playersQuery}>
-            {({ loading, error, data }) => {
-              if (loading) return <p>Loading...</p>;
-              if (error)
-                return (
-                  <p>
-                    Error{' '}
-                    <span role="img" aria-label="FeelsBadMan">
-                      😭
-                    </span>
-                  </p>
-                );
-
+      <div className="giocatori container">
+        <h1>Giocatori</h1>
+        <input
+          type="text"
+          placeholder="Cerca un giocatore&hellip;"
+          className="form-control"
+          onChange={this.onInputChange}
+        />
+        <Query query={playersQuery}>
+          {({ loading, error, data }) => {
+            if (loading) return <p>Loading...</p>;
+            if (error)
               return (
-                <PlayersList
-                  url={match.url}
-                  players={matchSorter(
-                    data.players.edges.map(({ node }) => node),
-                    this.state.searchValue,
-                    {
-                      keys: ['lastName', 'firstName'],
-                    },
-                  )}
-                />
+                <p>
+                  Error{' '}
+                  <span role="img" aria-label="FeelsBadMan">
+                    😭
+                  </span>
+                </p>
               );
-            }}
-          </Query>
-        </div>
+
+            return (
+              <PlayersList
+                url={match.url}
+                players={matchSorter(
+                  data.players.edges.map(({ node }) => node),
+                  this.state.searchValue,
+                  {
+                    keys: ['lastName', 'firstName'],
+                  },
+                )}
+              />
+            );
+          }}
+        </Query>
       </div>
     );
   }
