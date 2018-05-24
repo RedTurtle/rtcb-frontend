@@ -2,6 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
+import './styles.css';
 
 const teamQuery = id => gql`
   {
@@ -37,27 +38,41 @@ const Squadra = ({ match }) => (
           );
 
         return (
-          <div className="team-wrapper">
+          <div className="team-wrapper container">
             <h1>{data.team.name}</h1>
             <div className="team-members">
               {data.team.defender && (
                 <div className="team-member">
                   <label>Defender</label>
-                  <Link to={`/player/{data.team.defender.id}`}>
-                    <span>{data.team.defender.firstName}</span>
-                    <span>{data.team.defender.lastName}</span>
+                  <Link to={`/player/${data.team.defender.id}`}>
+                    <span>{`${data.team.defender.firstName} ${
+                      data.team.defender.lastName
+                    }`}</span>
                   </Link>
                 </div>
               )}
+              <div className="team-member">
+                <label>Defender</label>
+                <Link to={`/player/0`}>
+                  <span>Difensore Imperturbabile</span>
+                </Link>
+              </div>
               {data.team.striker && (
                 <div className="team-member">
                   <label>Striker</label>
-                  <Link to={`/player/{data.team.striker.id}`}>
-                    <span>{data.team.striker.firstName}</span>
-                    <span>{data.team.striker.lastName}</span>
+                  <Link to={`/player/${data.team.striker.id}`}>
+                    <span>{`${data.team.striker.firstName} ${
+                      data.team.striker.lastName
+                    }`}</span>
                   </Link>
                 </div>
               )}
+              <div className="team-member">
+                <label>Striker</label>
+                <Link to={`/player/1`}>
+                  <span>Attaccante Furioso</span>
+                </Link>
+              </div>
             </div>
           </div>
         );

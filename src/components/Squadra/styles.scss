@@ -1,0 +1,23 @@
+.team-wrapper {
+    padding: 1.5rem 0;
+}
+
+.team-members {
+    padding: 2rem 0;
+}
+
+.team-member {
+    width: 50%;
+    display: inline-block;
+
+    > * {
+        display: block;
+    }
+
+    label {
+        font-size: 0.8rem;
+        color: #666;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+}
