@@ -1,9 +1,10 @@
-import React from 'react';
-import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import * as React from 'react';
+import { Query } from 'react-apollo';
+import { RouteComponentProps } from 'react-router';
 import './styles.css';
 
-const playerQuery = id => gql`
+const playerQuery = (id: string) => gql`
   {
     player(id: "${id}") {
       firstName
@@ -20,7 +21,9 @@ const roles = {
   S: 'Attaccante',
 };
 
-const Giocatore = ({ match }) => (
+const Giocatore: React.SFC<RouteComponentProps<{ id: string }>> = ({
+  match,
+}) => (
   <Query query={playerQuery(match.params.id)}>
     {({ loading, error, data }) => {
       if (loading) {
