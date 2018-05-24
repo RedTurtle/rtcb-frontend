@@ -1,13 +1,6 @@
 {
-  "extends": [
-    "react-app",
-    "prettier",
-    "prettier/flowtype",
-    "prettier/react"
-  ],
-  "plugins": [
-    "prettier"
-  ],
+  "extends": ["react-app", "prettier", "prettier/react"],
+  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": [
       "warn",
