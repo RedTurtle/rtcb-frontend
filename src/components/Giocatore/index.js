@@ -16,15 +16,17 @@ const playerQuery = id => gql`
 `;
 
 const roles = {
-  S: 'Attaccante',
   D: 'Difensore',
+  S: 'Attaccante',
 };
 
 const Giocatore = ({ match }) => (
   <Query query={playerQuery(match.params.id)}>
     {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error)
+      if (loading) {
+        return <p>Loading...</p>;
+      }
+      if (error) {
         return (
           <p>
             Error{' '}
@@ -33,6 +35,7 @@ const Giocatore = ({ match }) => (
             </span>
           </p>
         );
+      }
 
       return (
         <div className="giocatore container">

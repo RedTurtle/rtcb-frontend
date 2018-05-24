@@ -3,7 +3,7 @@ import SquadraLink from '../SquadraLink';
 import './index.css';
 
 const Partita = () => {
-  let randomInt = parseInt(Math.random() * 10);
+  let randomInt = parseInt(Math.random() * 10, 10);
   let teamAWinner = randomInt > 5;
   let teamBWinner = !teamAWinner;
 

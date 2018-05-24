@@ -26,8 +26,10 @@ const Squadra = ({ match }) => (
   <div className="squadra">
     <Query query={teamQuery(match.params.id)}>
       {({ loading, error, data }) => {
-        if (loading) return <p>Loading...</p>;
-        if (error)
+        if (loading) {
+          return <p>Loading...</p>;
+        }
+        if (error) {
           return (
             <p>
               Error{' '}
@@ -36,6 +38,7 @@ const Squadra = ({ match }) => (
               </span>
             </p>
           );
+        }
 
         return (
           <div className="team-wrapper container">

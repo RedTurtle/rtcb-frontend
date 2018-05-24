@@ -44,8 +44,10 @@ class Giocatori extends Component {
         />
         <Query query={playersQuery}>
           {({ loading, error, data }) => {
-            if (loading) return <p>Loading...</p>;
-            if (error)
+            if (loading) {
+              return <p>Loading...</p>;
+            }
+            if (error) {
               return (
                 <p>
                   Error{' '}
@@ -54,6 +56,7 @@ class Giocatori extends Component {
                   </span>
                 </p>
               );
+            }
 
             return (
               <PlayersList

@@ -47,8 +47,10 @@ class Squadre extends Component {
         <div className="squadre-list list-group">
           <Query query={teamsQuery}>
             {({ loading, error, data }) => {
-              if (loading) return <p>Loading...</p>;
-              if (error)
+              if (loading) {
+                return <p>Loading...</p>;
+              }
+              if (error) {
                 return (
                   <p>
                     Error{' '}
@@ -57,6 +59,7 @@ class Squadre extends Component {
                     </span>
                   </p>
                 );
+              }
 
               return (
                 <TeamsList
