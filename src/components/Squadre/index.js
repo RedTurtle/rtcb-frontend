@@ -11,26 +11,6 @@ const teamsQuery = gql`
       edges {
         node {
           id
-          striker {
-            id
-          }
-          defender {
-            id
-          }
-          matchesA {
-            edges {
-              node {
-                id
-              }
-            }
-          }
-          matchesB {
-            edges {
-              node {
-                id
-              }
-            }
-          }
           name
         }
       }

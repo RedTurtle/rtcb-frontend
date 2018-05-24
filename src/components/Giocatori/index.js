@@ -40,6 +40,7 @@ class Giocatori extends Component {
           <input
             type="text"
             placeholder="Cerca un giocatore&hellip;"
+            className="form-control"
             onChange={this.onInputChange}
           />
           <Query query={playersQuery}>

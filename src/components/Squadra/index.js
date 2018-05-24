@@ -1,11 +1,22 @@
 import React from 'react';
 import { Query } from 'react-apollo';
+import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 
 const teamQuery = id => gql`
   {
     team(id: "${id}") {
       name
+      defender {
+        id
+        firstName
+        lastName
+      }
+      striker {
+        id
+        firstName
+        lastName
+      }
     }
   }
 `;
@@ -25,7 +36,31 @@ const Squadra = ({ match }) => (
             </p>
           );
 
-        return <p>{data.team.name}</p>;
+        return (
+          <div className="team-wrapper">
+            <h1>{data.team.name}</h1>
+            <div className="team-members">
+              {data.team.defender && (
+                <div className="team-member">
+                  <label>Defender</label>
+                  <Link to={`/player/{data.team.defender.id}`}>
+                    <span>{data.team.defender.firstName}</span>
+                    <span>{data.team.defender.lastName}</span>
+                  </Link>
+                </div>
+              )}
+              {data.team.striker && (
+                <div className="team-member">
+                  <label>Striker</label>
+                  <Link to={`/player/{data.team.striker.id}`}>
+                    <span>{data.team.striker.firstName}</span>
+                    <span>{data.team.striker.lastName}</span>
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        );
       }}
     </Query>
   </div>
