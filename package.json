@@ -50,7 +50,7 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "prettier-all": "prettier --write '**/*.{js,ts,tsx,json,scss}'",
+    "prettier-all": "prettier --write 'src/**/*.{js,ts,tsx,json,scss}'",
     "precommit": "lint-staged"
   },
   "lint-staged": {
