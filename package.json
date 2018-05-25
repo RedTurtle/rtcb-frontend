@@ -50,11 +50,11 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "prettier-all": "prettier --write '**/*.{js,json,css}'",
+    "prettier-all": "prettier --write '**/*.{js,ts,tsx,json,scss}'",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,css}": ["prettier --write", "git add"]
+    "*.{js,ts,tsx,json,scss}": ["prettier --write", "git add"]
   },
   "proxy": "http://localhost:8000"
 }
