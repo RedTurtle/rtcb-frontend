@@ -13,6 +13,7 @@
 
 .add-modal-content {
     position: relative;
+    height: 100%;
 
     button.modal-close {
         background: none;
@@ -31,5 +32,11 @@
 
     form {
         padding: 1.5rem 0;
+
+        .form-submit {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5px;
+        }
     }
 }
