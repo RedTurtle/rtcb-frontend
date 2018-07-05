@@ -1,0 +1,31 @@
+.add-modal-wrapper {
+    button {
+        cursor: pointer;
+
+        .icon {
+            font-weight: 600;
+            padding-right: 0.5rem;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+    }
+}
+
+.add-modal-content {
+    position: relative;
+
+    button.modal-close {
+        background: none;
+        border: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+
+        .icon {
+            font-weight: 600;
+            line-height: 1;
+            font-size: 2rem;
+        }
+    }
+}

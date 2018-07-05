@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import matchSorter from 'match-sorter';
 import './styles.css';
 import PlayersList from '../PlayersList';
+import AddModal from '../AddModal';
 
 const playersQuery = gql`
   {
@@ -36,12 +37,15 @@ class Giocatori extends Component {
     return (
       <div className="giocatori container">
         <h1>Giocatori</h1>
-        <input
-          type="text"
-          placeholder="Cerca un giocatore&hellip;"
-          className="form-control"
-          onChange={this.onInputChange}
-        />
+        <div className="search-add-wrapper">
+          <input
+            type="text"
+            placeholder="Cerca un giocatore&hellip;"
+            className="form-control"
+            onChange={this.onInputChange}
+          />
+          <AddModal btnLabel="Giocatore" />
+        </div>
         <Query query={playersQuery}>
           {({ loading, error, data }) => {
             if (loading) {
