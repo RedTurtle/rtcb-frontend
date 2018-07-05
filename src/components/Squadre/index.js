@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import TeamsList from '../TeamsList';
 import matchSorter from 'match-sorter';
 import AddModal from '../AddModal';
+import AddTeamForm from '../AddTeamForm';
 import './index.css';
 
 const teamsQuery = gql`
@@ -46,7 +47,7 @@ class Squadre extends Component {
             type="text"
             className="form-control"
           />
-          <AddModal btnLabel="squadra" />
+          <AddModal btnLabel="squadra" form={<AddTeamForm />} />
         </div>
         <div className="squadre-list list-group">
           <Query query={teamsQuery}>

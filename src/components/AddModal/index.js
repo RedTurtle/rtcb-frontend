@@ -42,14 +42,7 @@ class AddModal extends Component {
             <button className="modal-close" onClick={this.closeModal}>
               <span className="icon">&times;</span>
             </button>
-            <div>I am a modal</div>
-            <form>
-              <input />
-              <button>tab navigation</button>
-              <button>stays</button>
-              <button>inside</button>
-              <button>the modal</button>
-            </form>
+            {this.props.form}
           </div>
         </Modal>
       </div>

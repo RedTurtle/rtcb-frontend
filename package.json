@@ -41,7 +41,8 @@
     "react-apollo": "^2.1.1",
     "react-dom": "^16.4.1",
     "react-modal": "^3.5.1",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "react-select": "^1.2.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
