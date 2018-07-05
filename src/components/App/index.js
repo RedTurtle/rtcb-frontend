@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import Header from '../Header';
 import Homepage from '../Homepage';
+import Calendario from '../Calendario';
 import Giocatori from '../Giocatori';
 import Squadre from '../Squadre';
 import Squadra from '../Squadra';
@@ -18,7 +19,7 @@ class App extends Component {
           <div className="App">
             <Header />
             <Route exact path="/" component={Homepage} />
-            <Route path="/calendar" render={() => <h1>Calendario</h1>} />
+            <Route path="/calendar" render={() => <Calendario />} />
             <Route
               exact
               path="/teams"
