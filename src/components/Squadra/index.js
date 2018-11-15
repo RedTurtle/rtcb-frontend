@@ -44,23 +44,11 @@ const Squadra = ({ match }) => (
 
         return (
           <div className="team-wrapper container">
-            <div className="row">
-              <div className="col-md-8">
-                <h1>{data.team.name}</h1>
-              </div>
-              <div className="col-md-4">
-                <AddModal
-                  btnLabel="Modifica squadra"
-                  form={
-                    <EditTeamForm
-                      teamName={data.team.name}
-                      defender={data.team.defender}
-                      striker={data.team.striker}
-                    />
-                  }
-                />
-              </div>
-            </div>
+            <h1>{data.team.name}</h1>
+            <AddModal
+              btnLabel="Modifica squadra"
+              form={<EditTeamForm team={data.team} />}
+            />
             <div className="team-members">
               {data.team.defender && (
                 <div className="team-member">
