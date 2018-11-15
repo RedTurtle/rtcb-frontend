@@ -2,6 +2,10 @@ import gql from 'graphql-tag';
 import * as React from 'react';
 import { Query } from 'react-apollo';
 import { RouteComponentProps } from 'react-router';
+
+import AddModal from '../AddModal';
+import EditProfileForm from '../EditProfileForm';
+
 import './styles.css';
 
 const playerQuery = (id: string) => gql`
@@ -16,7 +20,7 @@ const playerQuery = (id: string) => gql`
   }
 `;
 
-const roles = {
+export const roles = {
   D: 'Difensore',
   S: 'Attaccante',
 };
@@ -45,6 +49,7 @@ const Giocatore: React.SFC<RouteComponentProps<{ id: string }>> = ({
           <h1 className="title">
             {data.player.firstName} {data.player.lastName}
           </h1>
+          <AddModal btnLabel="giocatore" form={<EditProfileForm />} />
           <div className="row">
             <div className="col-md">
               <img
