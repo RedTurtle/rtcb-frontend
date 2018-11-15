@@ -1,0 +1,14 @@
++---------+
+|  TODOs  |
++---------+
+
+Squadra
+✅ aggiunta squadra (stato select)
+✅ modifica squadra
+
+Giocatore
+⭕ modifica giocatore (te stesso)
+
+Common
+⭕ convertire tutto a TypeScript
+⭕ aggiungere test
