@@ -22,23 +22,20 @@ class AddModal extends Component {
   };
 
   render() {
-    let label = this.props.btnLabel
-      ? `Aggiungi ${this.props.btnLabel}`
-      : 'Aggiungi';
     return (
       <div className="add-modal-wrapper">
         <button onClick={this.openModal} className="btn btn-primary">
-          <span className="icon">+</span>
-          <span>{label}</span>
+          {this.props.icon && <span className="icon">{this.props.icon}</span>}
+          <span>{this.props.btnLabel}</span>
         </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          contentLabel="Add Modal"
+          contentLabel={this.props.btnLabel}
         >
           <div className="add-modal-content">
-            <h2>{label}</h2>
+            <h2>{this.props.btnLabel}</h2>
             <button className="modal-close" onClick={this.closeModal}>
               <span className="icon">&times;</span>
             </button>

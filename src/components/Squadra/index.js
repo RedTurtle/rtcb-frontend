@@ -3,6 +3,8 @@ import { Query } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 import './styles.css';
+import AddModal from '../AddModal';
+import EditTeamForm from '../EditTeamForm';
 
 const teamQuery = id => gql`
   {
@@ -42,11 +44,27 @@ const Squadra = ({ match }) => (
 
         return (
           <div className="team-wrapper container">
-            <h1>{data.team.name}</h1>
+            <div className="row">
+              <div className="col-md-8">
+                <h1>{data.team.name}</h1>
+              </div>
+              <div className="col-md-4">
+                <AddModal
+                  btnLabel="Modifica squadra"
+                  form={
+                    <EditTeamForm
+                      teamName={data.team.name}
+                      defender={data.team.defender}
+                      striker={data.team.striker}
+                    />
+                  }
+                />
+              </div>
+            </div>
             <div className="team-members">
               {data.team.defender && (
                 <div className="team-member">
-                  <label>Defender</label>
+                  <label>Difensore</label>
                   <Link to={`/player/${data.team.defender.id}`}>
                     <span>{`${data.team.defender.firstName} ${
                       data.team.defender.lastName
@@ -55,14 +73,14 @@ const Squadra = ({ match }) => (
                 </div>
               )}
               <div className="team-member">
-                <label>Defender</label>
+                <label>Difensore</label>
                 <Link to={`/player/0`}>
                   <span>Difensore Imperturbabile</span>
                 </Link>
               </div>
               {data.team.striker && (
                 <div className="team-member">
-                  <label>Striker</label>
+                  <label>Attaccante</label>
                   <Link to={`/player/${data.team.striker.id}`}>
                     <span>{`${data.team.striker.firstName} ${
                       data.team.striker.lastName
@@ -71,7 +89,7 @@ const Squadra = ({ match }) => (
                 </div>
               )}
               <div className="team-member">
-                <label>Striker</label>
+                <label>Attaccante</label>
                 <Link to={`/player/1`}>
                   <span>Attaccante Furioso</span>
                 </Link>

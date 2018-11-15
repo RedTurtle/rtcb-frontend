@@ -47,7 +47,11 @@ class Squadre extends Component {
             type="text"
             className="form-control"
           />
-          <AddModal btnLabel="squadra" form={<AddTeamForm />} />
+          <AddModal
+            icon="+"
+            btnLabel="Aggiungi squadra"
+            form={<AddTeamForm />}
+          />
         </div>
         <div className="squadre-list list-group">
           <Query query={teamsQuery}>
