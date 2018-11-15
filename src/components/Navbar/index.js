@@ -25,15 +25,6 @@ const Navbar = ({ location }) => (
       <ul className="navbar-nav mr-auto">
         <li
           className={`nav-item ${
-            location.pathname.match(/^\/calendar/) ? 'active' : ''
-          }`}
-        >
-          <Link className="nav-link" to="/calendar">
-            Calendario
-          </Link>
-        </li>
-        <li
-          className={`nav-item ${
             location.pathname.match(/^\/teams/) ? 'active' : ''
           }`}
         >

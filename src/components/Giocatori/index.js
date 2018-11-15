@@ -4,7 +4,6 @@ import gql from 'graphql-tag';
 import matchSorter from 'match-sorter';
 import './styles.css';
 import PlayersList from '../PlayersList';
-import AddModal from '../AddModal';
 
 const playersQuery = gql`
   {
@@ -44,7 +43,6 @@ class Giocatori extends Component {
             className="form-control"
             onChange={this.onInputChange}
           />
-          <AddModal btnLabel="Giocatore" />
         </div>
         <Query query={playersQuery}>
           {({ loading, error, data }) => {

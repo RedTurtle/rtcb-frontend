@@ -18,7 +18,6 @@ class App extends Component {
           <div className="App">
             <Header />
             <Route exact path="/" component={Homepage} />
-            <Route path="/calendar" render={() => <h1>Calendario</h1>} />
             <Route
               exact
               path="/teams"
