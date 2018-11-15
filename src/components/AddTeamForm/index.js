@@ -42,9 +42,6 @@ class AddTeamForm extends Component {
     return player => {
       const { label, value } = player;
 
-      // tslint:disable-next-line
-      console.log('select: ', field, player);
-      // [field]: { id: player.value, name: player.label },
       this.setState({
         [field]: { value, label },
       });
