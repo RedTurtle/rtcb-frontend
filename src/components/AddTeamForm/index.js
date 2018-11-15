@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
-import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import { debug } from 'util';
+import Select from 'react-select';
 
 const playersQuery = gql`
   {
@@ -33,18 +32,21 @@ class AddTeamForm extends Component {
     super(props);
 
     this.state = {
-      defender: { id: '', name: '' },
+      defender: { value: null, label: null },
       name: '',
-      striker: { id: '', name: '' },
+      striker: { value: null, label: null },
     };
   }
 
   handleChangeSelect = field => {
-    return e => {
-      let player = e;
+    return player => {
+      const { label, value } = player;
 
+      // tslint:disable-next-line
+      console.log('select: ', field, player);
+      // [field]: { id: player.value, name: player.label },
       this.setState({
-        [field]: { id: player.value, name: player.label },
+        [field]: { value, label },
       });
     };
   };
@@ -106,9 +108,9 @@ class AddTeamForm extends Component {
                         addTeam({
                           variables: {
                             input: {
-                              defender: this.state.defender.id,
+                              defender: this.state.defender.value,
                               name: this.state.name,
-                              striker: this.state.striker.id,
+                              striker: this.state.striker.value,
                             },
                           },
                         });
@@ -130,10 +132,10 @@ class AddTeamForm extends Component {
                         <Select
                           id="team-defender"
                           name="team-defender"
-                          value={this.state.defender.name}
+                          value={this.state.defender.value}
                           onChange={this.handleChangeSelect('defender')}
                           options={players}
-                          clearable
+                          clearable={false}
                         />
                       </div>
                       <div className="form-group">
@@ -141,10 +143,10 @@ class AddTeamForm extends Component {
                         <Select
                           id="team-striker"
                           name="team-striker"
-                          value={this.state.striker.name}
+                          value={this.state.striker.value}
                           onChange={this.handleChangeSelect('striker')}
                           options={players}
-                          clearable
+                          clearable={false}
                         />
                       </div>
                       <div className="form-submit">
