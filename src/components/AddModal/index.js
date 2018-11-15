@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import './index.css';
 
-Modal.setAppElement('#root');
+if (process.env.NODE_ENV !== 'test') {
+  Modal.setAppElement('#root');
+}
 
 class AddModal extends Component {
   constructor(props) {
