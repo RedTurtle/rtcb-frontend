@@ -49,7 +49,10 @@ const Giocatore: React.SFC<RouteComponentProps<{ id: string }>> = ({
           <h1 className="title">
             {data.player.firstName} {data.player.lastName}
           </h1>
-          <AddModal btnLabel="Modifica profilo" form={<EditProfileForm />} />
+          <AddModal
+            btnLabel="Modifica profilo"
+            form={<EditProfileForm player={data.player} />}
+          />
           <div className="row">
             <div className="col-md">
               <img

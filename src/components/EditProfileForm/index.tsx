@@ -5,29 +5,57 @@ import { roles } from '../Giocatore';
 
 type Roles = typeof roles;
 
-interface IState {
-  name: string;
-  preferredRole: keyof Roles;
+interface IProps {
+  player: {
+    firstName: string;
+    lastName: string;
+    role: keyof Roles;
+    versatile: boolean;
+  };
 }
 
-class EditProfileForm extends React.Component<{}, IState> {
-  public state: IState = {
-    name: 'Ciccio Pasticcio',
-    preferredRole: 'S',
-  };
+interface IState {
+  firstName: string;
+  lastName: string;
+  preferredRole: keyof Roles;
+  versatile: boolean;
+}
+
+class EditProfileForm extends React.Component<IProps, IState> {
+  public constructor(props: IProps) {
+    super(props);
+    const { firstName, lastName, role, versatile } = props.player;
+    this.state = {
+      firstName,
+      lastName,
+      preferredRole: role,
+      versatile,
+    };
+  }
 
   public render() {
     return (
       <form>
         <div className="form-group">
-          <label htmlFor="name">Nome</label>
+          <label htmlFor="firstName">Nome</label>
           <input
             className="form-control"
-            name="name"
-            id="name"
+            name="firstName"
+            id="firstName"
             placeholder="Indica un nome..."
-            value={this.state.name}
-            onChange={this.onChangeName}
+            value={this.state.firstName}
+            onChange={this.onChangeFirstName}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastName">Cognome</label>
+          <input
+            className="form-control"
+            name="lastName"
+            id="lastName"
+            placeholder="Indica un cognome..."
+            value={this.state.lastName}
+            onChange={this.onChangeLastName}
           />
         </div>
         <div className="form-group">
@@ -44,6 +72,16 @@ class EditProfileForm extends React.Component<{}, IState> {
             }))}
           />
         </div>
+        <div className="form-group">
+          <label htmlFor="versatile">Versatile</label>
+          <input
+            name="versatile"
+            id="versatile"
+            type="checkbox"
+            checked={this.state.versatile}
+            onChange={this.onChangeVersatile}
+          />
+        </div>
         <div className="form-submit">
           <button
             type="submit"
@@ -57,13 +95,24 @@ class EditProfileForm extends React.Component<{}, IState> {
     );
   }
 
-  private onChangeName = (e: React.FormEvent<HTMLInputElement>): void => {
+  private onChangeFirstName = (e: React.FormEvent<HTMLInputElement>): void => {
     e.preventDefault();
     const newName = e.currentTarget.value;
     this.setState(
       (prevState: IState): IState => ({
         ...prevState,
-        name: newName,
+        firstName: newName,
+      }),
+    );
+  };
+
+  private onChangeLastName = (e: React.FormEvent<HTMLInputElement>): void => {
+    e.preventDefault();
+    const newName = e.currentTarget.value;
+    this.setState(
+      (prevState: IState): IState => ({
+        ...prevState,
+        lastName: newName,
       }),
     );
   };
@@ -77,6 +126,16 @@ class EditProfileForm extends React.Component<{}, IState> {
       (prevState: IState): IState => ({
         ...prevState,
         preferredRole: value,
+      }),
+    );
+  };
+
+  private onChangeVersatile = (e: React.FormEvent<HTMLInputElement>): void => {
+    const newValue = e.currentTarget.checked;
+    this.setState(
+      (prevState: IState): IState => ({
+        ...prevState,
+        versatile: newValue,
       }),
     );
   };
