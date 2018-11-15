@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Select from 'react-select';
+
 import { roles } from '../Giocatore';
 
 type Roles = typeof roles;
@@ -30,16 +32,17 @@ class EditProfileForm extends React.Component<{}, IState> {
         </div>
         <div className="form-group">
           <label htmlFor="preferred-role">Ruolo preferito</label>
-          <select
+          <Select
             name="prefrole"
             id="preferred-role"
             value={this.state.preferredRole}
             onChange={this.onChangeRole}
-          >
-            {Object.keys(roles).map(role => (
-              <option value={role}>{roles[role]}</option>
-            ))}
-          </select>
+            clearable={false}
+            options={Object.keys(roles).map(role => ({
+              label: roles[role],
+              value: role as string,
+            }))}
+          />
         </div>
         <div className="form-submit">
           <button
@@ -65,13 +68,15 @@ class EditProfileForm extends React.Component<{}, IState> {
     );
   };
 
-  private onChangeRole = (e: React.FormEvent<HTMLSelectElement>): void => {
-    e.preventDefault();
-    const newRole = e.currentTarget.value as IState['preferredRole'];
+  private onChangeRole = ({
+    value,
+  }: {
+    value: IState['preferredRole'];
+  }): void => {
     this.setState(
       (prevState: IState): IState => ({
         ...prevState,
-        preferredRole: newRole,
+        preferredRole: value,
       }),
     );
   };
