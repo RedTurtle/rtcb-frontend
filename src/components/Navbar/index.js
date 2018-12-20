@@ -41,6 +41,15 @@ const Navbar = ({ location }) => (
             Giocatori
           </Link>
         </li>
+        <li
+          className={`nav-item ${
+            location.pathname.match(/^\/quickmatches/) ? 'active' : ''
+          }`}
+        >
+          <Link className="nav-link" to="/quickmatches">
+            Partite Rapide
+          </Link>
+        </li>
       </ul>
     </div>
   </nav>

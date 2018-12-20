@@ -9,6 +9,7 @@ import Squadra from '../Squadra';
 import Footer from '../Footer';
 import { client } from '../../graphql/client';
 import Giocatore from '../Giocatore';
+import PartiteRapide from '../PartiteRapide';
 
 class App extends Component {
   render() {
@@ -30,6 +31,11 @@ class App extends Component {
               render={props => <Giocatori {...props} />}
             />
             <Route path="/players/:id" render={Giocatore} />
+            <Route
+              exact
+              path="/quickmatches"
+              render={props => <PartiteRapide {...props} />}
+            />
             <Footer />
           </div>
         </Router>
